@@ -1,0 +1,35 @@
+<h1>作業一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">作業名称</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @works.each.with_index(1) do |work, i| %>
+      <tr>
+        <th scope="row"><%= i %></th>
+        <td><%= work.name %></td>
+        <td>
+          <%= link_to "詳細", work %>
+          <%= link_to "編集", edit_work_path(work) %>
+          <%= link_to "削除", work, method: :delete, data: { confirm: "削除しますか?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= month_calendar events: @works do |date, works| %>
+  <%= date.day %>
+
+  <% works.each do |work| %>
+    <div>
+      <%= link_to work do %>
+        <%= work.name %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

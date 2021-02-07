@@ -1,0 +1,10 @@
+<p>新規登録</p>
+<%= form_with model: @work, local: false do |f| %>
+  <p>作業名称：<%= f.text_field :name %></p>
+  <p>内容：<%= f.text_field :content %></p>
+  <p>作業者：<%= f.text_field :user_name %></p>
+  <p>必要スキル：<%= f.text_field :required_skill %></p>
+  <p>開始時間：<%= f.text_field :start_time %></p>
+  <p>終了時間：<%= f.text_field :end_time %></p>
+  <%= f.submit "送信" %>
+<% end %>
