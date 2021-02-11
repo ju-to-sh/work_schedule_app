@@ -1,20 +1,25 @@
 <div class="simple-calendar">
-  <div class="calendar-heading">
-    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
-    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+  <div class="calendar-heading text-center h3">
+    <%= link_to calendar.url_for_previous_view do %>
+      <i class="fas fa-angle-left mr-2"></i>
+    <% end %>
+    <span class="calendar-title"><%= start_date.strftime("%Y年")
+ %><%= t('date.month_names')[start_date.month] %></span>
+    <%= link_to calendar.url_for_next_view do %>
+      <i class="fas fa-angle-right ml-2"></i>
+    <% end %>
   </div>
 
   <table class="table table-striped">
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+          <th class="text-center"><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
       </tr>
     </thead>
 
-    <tbody>
+    <tbody id="calendar">
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>

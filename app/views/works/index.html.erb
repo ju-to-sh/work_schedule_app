@@ -22,14 +22,6 @@
   </tbody>
 </table>
 
-<%= month_calendar events: @works do |date, works| %>
-  <%= date.day %>
-
-  <% works.each do |work| %>
-    <div>
-      <%= link_to work do %>
-        <%= work.name %>
-      <% end %>
-    </div>
-  <% end %>
-<% end %>
+<div id="works_calendar">
+  <%= render partial: "calendar", locals: {events: @works} %>
+</div>
