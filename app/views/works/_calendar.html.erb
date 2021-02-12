@@ -1,0 +1,11 @@
+<%= month_calendar events: @works, previous_link: works_ajax_previous_link, next_link: works_ajax_next_link do |date, works| %>
+  <%= link_to "#{date.day}", new_work_path, :style=>"color:black;" %>
+
+  <% works.each do |work| %>
+    <div>
+      <%= link_to work do %>
+        <%= work.name %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
