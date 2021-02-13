@@ -1,0 +1,20 @@
+<p>新規登録</p>
+<%= form_with model: @skill, local: false do |f| %>
+  <p>
+    <%= f.label :name, "スキル名称" %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :classification, "分類" %>
+    <%= f.text_field :classification %>
+  </p>
+  <p>
+    <%= f.label :content, "内容" %>
+    <%= f.text_field :content %>
+  </p>
+  <p>
+    <%= f.label :certification, "認定" %>
+    <%= f.number_field :certification %>
+  </p>
+  <%= f.submit "送信" %>
+<% end %>
