@@ -6,7 +6,7 @@ require("channels")
 
 import "bootstrap/dist/js/bootstrap"
 import "@fortawesome/fontawesome-free/js/all"
-import "./calendar"
+
 
 
 
