@@ -7,7 +7,7 @@ class WorksController < ApplicationController
   end
 
   def show
-
+    @required_skills = @work.skills
   end
 
   def new
@@ -44,6 +44,6 @@ class WorksController < ApplicationController
   end
 
   def work_params
-    params.require(:work).permit(:name, :content, :user_name, :required_skill, :start_time, :end_time)
+    params.require(:work).permit(:name, :content, :user_name, :required_skill, :start_time, :end_time, :priority, { :skill_ids => [] })
   end
 end
