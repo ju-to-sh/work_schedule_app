@@ -1,7 +1,21 @@
 <h1>作業詳細</h1>
-<p>名称 <%= @work.name %></p>
-<p>内容 <%= @work.content %></p>
-<p>作業者 <%= @work.user_name %></p>
-<p>必要スキル <%= @work.required_skill %></p>
-<p>開始時間 <%= @work.start_time %></p>
-<p>終了時間 <%= @work.end_time %></p>
+<p>名称
+  <%= @work.name %>
+</p>
+<p>内容
+  <%= @work.content %>
+</p>
+<p>作業者
+  <%= @work.user_name %>
+</p>
+<p>必要スキル
+  <% @required_skills.each do |required_skill| %>
+    <%= required_skill.name %>
+  <% end %>
+</p>
+<p>開始時間
+  <%= @work.start_time %>
+</p>
+<p>終了時間
+  <%= @work.end_time %>
+</p>
